@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -17,9 +18,19 @@ public class CalculatorScript : MonoBehaviour
     private float convertedValue = default;
     [SerializeField]private TMP_InputField convertedInputField = default;
 
+    [SerializeField]private TextMeshProUGUI errorDisplayText = default;
+
     public void OnInputFieldEnter() {
-        sgdValue = float.Parse(sgdInputField.text);
-        print(sgdValue);
+        try {
+            sgdValue = float.Parse(sgdInputField.text);
+        }
+        catch (Exception e) {
+            errorDisplayText.gameObject.SetActive(true);
+            ClearButtonPressed();
+            return;
+        }
+
+        errorDisplayText.gameObject.SetActive(false);
     }
 
     public void SelectToggle(Toggle toggleToOff) {
