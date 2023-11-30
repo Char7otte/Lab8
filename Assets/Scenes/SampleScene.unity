@@ -735,7 +735,7 @@ MonoBehaviour:
         m_MethodName: SelectToggle
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1690072081}
+          m_ObjectArgument: {fileID: 339723500}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2012,6 +2012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usdToggle: {fileID: 339723500}
   jpyToggle: {fileID: 1690072081}
+  rmToggle: {fileID: 0}
+  eurToggle: {fileID: 0}
+  krwToggle: {fileID: 0}
+  twdToggle: {fileID: 0}
+  currencyToggles:
+  - {fileID: 339723500}
+  - {fileID: 1690072081}
   sgdInputField: {fileID: 1231727207}
   convertedInputField: {fileID: 512463171}
   errorDisplayText: {fileID: 213645174}
@@ -2965,7 +2972,7 @@ MonoBehaviour:
         m_MethodName: SelectToggle
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 339723500}
+          m_ObjectArgument: {fileID: 1690072081}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0

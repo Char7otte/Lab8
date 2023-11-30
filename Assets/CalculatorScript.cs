@@ -9,8 +9,20 @@ public class CalculatorScript : MonoBehaviour
 {
     private float usdConversion = 0.74f;
     private float jpyConversion = 82.78f;
+    private float rmConversion = 3.08f;
+    private float eurConversion = 0.68f;
+    private float krwConversion = 881.54f;
+    private float twdConversion = 20.73f;
+
     [SerializeField]private Toggle usdToggle = default;
     [SerializeField]private Toggle jpyToggle = default;
+    [SerializeField]private Toggle rmToggle = default;
+    [SerializeField]private Toggle eurToggle = default;
+    [SerializeField]private Toggle krwToggle = default;
+    [SerializeField]private Toggle twdToggle = default;
+
+    [SerializeField]private Toggle[] currencyToggles = default;
+
 
     private float sgdValue = default;
     [SerializeField]private TMP_InputField sgdInputField = default;
@@ -33,8 +45,14 @@ public class CalculatorScript : MonoBehaviour
         errorDisplayText.gameObject.SetActive(false);
     }
 
-    public void SelectToggle(Toggle toggleToOff) {
-        toggleToOff.isOn = false;
+    public void SelectToggle(Toggle thisToggle) {
+        List<Toggle> list = new List<Toggle>(currencyToggles);
+        list.Remove(thisToggle);
+        var _currencyToggles = list.ToArray();
+
+        foreach (var toggle in _currencyToggles) {
+            toggle.isOn = false;
+        }
     }
 
     public void ConvertButtonPressed() {
