@@ -10,7 +10,7 @@ public class CalculatorScript : MonoBehaviour
     private float usdConversion = 0.74f;
     private float jpyConversion = 82.78f;
     private float rmConversion = 3.08f;
-    private float eurConversion = 0.68f;
+    private float eurConversion = 0.63f;
     private float krwConversion = 881.54f;
     private float twdConversion = 20.73f;
 
@@ -62,11 +62,25 @@ public class CalculatorScript : MonoBehaviour
         else if (jpyToggle.isOn) {
             convertedValue = ConvertCurrency(sgdValue, jpyConversion);
         }
+        else if (rmToggle.isOn) {
+            convertedValue = ConvertCurrency(sgdValue, rmConversion);
+        }
+        else if (eurToggle.isOn) {
+            convertedValue = ConvertCurrency(sgdValue, eurConversion);
+        }
+        else if (krwToggle.isOn) {
+            convertedValue = ConvertCurrency(sgdValue, krwConversion);
+        }
+        else if (twdToggle.isOn) {
+            convertedValue = ConvertCurrency(sgdValue, twdConversion);
+        }
     }
 
     public void ClearButtonPressed() {
-        usdToggle.isOn = false;
-        jpyToggle.isOn = false;
+        foreach (var toggle in currencyToggles) {
+            toggle.isOn = false;
+        }
+
         sgdInputField.text = "";
         sgdValue = 0;
         convertedInputField.text = "";
